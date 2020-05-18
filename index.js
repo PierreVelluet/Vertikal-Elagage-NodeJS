@@ -13,10 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.json())
 app.use('/', router)
-app.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);;
-  next();
-});
+
 
 
 //Get all the comments from the comment table
