@@ -13,15 +13,16 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.json())
 app.use('/', router)
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 
 //Get all the comments from the comment table
-app.get('/api/comments',{
-  headers: {
-    "Access-Control-Allow-Origin": "https://vertikalreunion.herokuapp.com"
-  }
-}, (req, res) => {
-
+app.get('/api/comments', (req, res) => {
     connection.query('SELECT * FROM comments', (err, results) => {
   
       if (err) {
