@@ -15,28 +15,6 @@ app.use(express.json())
 app.use('/', router)
 
 
-// connection.connect().then(() => {
-
-//   connection.query(`CREATE TABLE comments (name VARCHAR(200) CONSTRAINT firstkey PRIMARY KEY,message VARCHAR(200) NOT NULL,
-//     stars integer DEFAULT 1,);`)
-//   .then(() => {
-//     connection.query(`INSERT INTO comments(message, name, stars) VALUES ('gg', 'Pierre', 5)`)
-//     .then(() => {
-//       connection.query('SELECT * FROM comments')
-//       .then(console.log)
-//       .catch(console.error)
-//     })
-//     .catch(console.error)
-    
-//   })
-//   .catch(console.error)
-
- 
-// })
-// .catch(console.error)
-  
-
-
 //Get all the comments from the comment table
 app.get('/api/comments', (req, res) => {
 
