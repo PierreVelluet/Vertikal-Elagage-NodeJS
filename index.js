@@ -16,7 +16,11 @@ app.use('/', router)
 
 
 //Get all the comments from the comment table
-app.get('/api/comments', (req, res) => {
+app.get('/api/comments',{
+  headers: {
+    "Access-Control-Allow-Origin": "https://vertikalreunion.herokuapp.com"
+  }
+}, (req, res) => {
 
     connection.query('SELECT * FROM comments', (err, results) => {
   
